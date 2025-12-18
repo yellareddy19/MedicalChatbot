@@ -1,9 +1,19 @@
 Metadata-Version: 2.4
 Name: medical_chatbot
 Version: 0.1.0
-Author: Boktiar Ahmed Bappy
-Author-email: entbappy73@gmail.com
+Author: yellareddy
+Author-email: reddy@gmail.com
 License-File: LICENSE
+Requires-Dist: langchain==0.3.26
+Requires-Dist: flask==3.1.1
+Requires-Dist: pypdf==5.6.1
+Requires-Dist: python-dotenv==1.1.0
+Requires-Dist: langchain-pinecone==0.2.8
+Requires-Dist: langchain-openai==0.3.24
+Requires-Dist: langchain-community==0.3.26
+Requires-Dist: fastapi==0.115.0
+Requires-Dist: uvicorn==0.30.6
 Dynamic: author
 Dynamic: author-email
 Dynamic: license-file
+Dynamic: requires-dist

@@ -4,7 +4,14 @@ setup.py
 medical_chatbot.egg-info/PKG-INFO
 medical_chatbot.egg-info/SOURCES.txt
 medical_chatbot.egg-info/dependency_links.txt
+medical_chatbot.egg-info/requires.txt
 medical_chatbot.egg-info/top_level.txt
 src/__init__.py
+src/chat.py
+src/embeddings.py
 src/helper.py
+src/ingest.py
+src/pineconedb.py
 src/prompt.py
+src/rag.py
+src/service.py

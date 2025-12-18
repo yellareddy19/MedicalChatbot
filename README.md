@@ -1,86 +1,169 @@
-# MedicalChatbot
-## Medical Chatbot
 
-A lightweight medical chatbot project for research and experimentation. This repository contains the application entrypoint, helper modules, prompts, and research artifacts used while developing the chatbot.
+# 🩺 Medical Chatbot (RAG-based)
 
-## Features
-- Simple command-line / local web interface (see `app.py`)
-- Reusable helper utilities in `src/`
-- Reproducible environment via `requirements.txt` or Conda
-
-## Requirements
-- Python 3.8+
-- Conda (recommended) or a virtual environment
-
-## Recommended Setup (Conda)
-1. Create the Conda environment (you already ran this):
-
-```bash
-conda create -n medicalBotENV python=3.10 -y
-```
-
-2. Activate the environment:
-
-PowerShell:
-```powershell
-conda activate medicalBotENV
-```
-
-Or bash / WSL / Git Bash:
-```bash
-conda activate medicalBotENV
-```
-
-3. Install dependencies:
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-## Alternate Setup (venv)
-If you prefer a local virtualenv, create and activate it and then install the requirements:
-
-Windows (PowerShell):
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-```
-
-Linux / macOS:
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-```
-
-## Running
-Run the app entrypoint:
-
-```bash
-python app.py
-```
-
-Adjust command-line options or configuration as needed (see `app.py` and `src/`).
-
-## Project Structure
-- `app.py` — application entrypoint
-- `requirements.txt` — pip dependencies
-- `setup.py` — packaging helper (if used)
-- `src/` — project source modules (`helper.py`, `prompt.py`)
-- `research/` — notebooks and experiments
-- `.venv/` or Conda env — local virtual environment (ignored by `.gitignore`)
-
-## Development
-- Use `flake8` / `black` / `isort` as desired (not included by default)
-- Run unit tests (if added) with `pytest`
-
-## Notes
-- Keep any secrets or API keys out of the repository; add them to a `.env` file and ensure `.env` is ignored.
-
-## License
-See the `LICENSE` file in the repository root.
+A Retrieval-Augmented Generation (RAG) based **Medical Chatbot** built using **LangChain, OpenAI, Pinecone**, and a **modern HTML/CSS frontend**.  
+The chatbot answers medical questions using a **default medical PDF** stored locally (no document upload by users).
 
 ---
-If you'd like, I can also detect and configure the VS Code interpreter to use your `medicalBotENV` Conda environment.
-# MedicalChatbot
+
+## ✨ Features
+
+- 📄 Uses a **preloaded medical PDF** (`data/Medical_book.pdf`)
+- 🔍 Semantic search using **OpenAI embeddings**
+- 🧠 Context-aware answers using **GPT-4o**
+- 🧬 Vector storage with **Pinecone**
+- ⚡ Modular, production-ready Python code
+- 🎨 Beautiful chatbot UI built with **HTML, CSS, JavaScript**
+- 🚫 No document upload needed by users
+
+---
+
+## 🧱 Tech Stack
+
+### Backend
+- Python
+- LangChain
+- OpenAI (`text-embedding-3-small`, `gpt-4o`)
+- Pinecone (Vector Database)
+- FastAPI
+
+### Frontend
+- HTML
+- CSS
+- JavaScript
+
+---
+
+## 📁 Project Structure
+
+```text
+MED_CHATBOT/
+├─ data/
+│  └─ Medical_book.pdf
+├─ src/
+│  ├─ ingest.py
+│  ├─ embeddings.py
+│  ├─ pinecone_db.py
+│  ├─ rag.py
+│  ├─ service.py
+│  └─ __init__.py
+├─ web/
+│  ├─ index.html
+│  ├─ style.css
+│  ├─ app.js
+│  └─ assets/
+│     └─ bot.png
+├─ app.py
+├─ requirements.txt
+├─ setup.py
+├─ .env
+├─ .gitignore
+└─ README.md
+````
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/MedicalChatbot.git
+cd MedicalChatbot
+```
+
+---
+
+### 2️⃣ Create and Activate Virtual Environment
+
+```bash
+python -m venv .venv
+source .venv/Scripts/activate   # Windows (Git Bash)
+```
+
+---
+
+### 3️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Or editable install:
+
+```bash
+pip install -e .
+```
+
+---
+
+### 4️⃣ Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+OPENAI_API_KEY=your_openai_api_key
+PINECONE_API_KEY=your_pinecone_api_key
+```
+
+⚠️ **Do NOT commit `.env`**
+
+---
+
+## 🚀 Run the Application
+
+Start the FastAPI server:
+
+```bash
+uvicorn app:app --reload
+```
+
+Open in browser:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## 💬 How It Works
+
+```text
+Medical PDF
+   ↓
+Text Chunking
+   ↓
+OpenAI Embeddings
+   ↓
+Pinecone Vector Database
+   ↓
+Retriever
+   ↓
+GPT-4o Response
+```
+
+---
+
+## 🧪 Example Query
+
+**User:**
+
+> What is anemia?
+
+**Bot:**
+Retrieves relevant content from the medical book and generates a grounded medical explanation.
+
+---
+
+## 🔐 Security Notes
+
+* `.env` is ignored via `.gitignore`
+* API keys are never pushed to GitHub
+* Rotate keys immediately if exposed
+
+---
+
+
+
+
+
