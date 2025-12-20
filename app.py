@@ -22,8 +22,11 @@ def home():
 
 class ChatRequest(BaseModel):
     message: str
+    session_id: str = "default"
+
 
 @app.post("/chat")
 def chat(req: ChatRequest):
-    answer = svc.ask(req.message)
+    answer = svc.ask(req.message, session_id=req.session_id)
     return {"answer": answer}
+
