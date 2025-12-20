@@ -248,7 +248,7 @@ docker ps
 
 ---
 
-## Author
+# Author
 
 **Yella Reddy**
 GitHub: [https://github.com/yellareddy19](https://github.com/yellareddy19)
