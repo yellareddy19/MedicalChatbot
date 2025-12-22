@@ -66,7 +66,7 @@ medical_chatbot/
 Fork the repository from GitHub, then clone it:
 
 ```bash
-git clone https://github.com/<yellareddy19>/MedicalChatbot.git
+git clone https://github.com/yellareddy19/MedicalChatbot.git
 cd MedicalChatbot
 ```
 
